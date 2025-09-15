@@ -43,8 +43,11 @@ jobs:
       # Deploy to S3
       - name: Sync files to S3
         run: |
-          aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }} --delete
-          aws s3 cp ./index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --acl public-read || echo "index.html not found"
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "iac/*" \
+            --exclude "pipeline/*"
 
       # Invalidate CloudFront cache
       - name: Invalidate CloudFront
