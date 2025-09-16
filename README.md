@@ -1,7 +1,7 @@
 # AWS DevOps Engineer – Demo Assignment (Static Website Deployment)
 
 ## 🚀 Project Overview
-This project demonstrates deploying a **static website** (index.html) on **AWS** using **Terraform** for Infrastructure as Code (IaC) and **GitHub Actions** for CI/CD automation.  
+This project demonstrates deploying a **static website**  on **AWS** using **Terraform** for Infrastructure as Code (IaC) and **GitHub Actions** for CI/CD automation.  
 
 Whenever code is pushed to the `main` branch, the pipeline automatically:
 1. Uploads the updated website files to **Amazon S3**.
@@ -19,7 +19,7 @@ flowchart TD
     CF --> User[End Users]
 
 -> GitHub Actions: Automates build & deployment.
--> S3 Bucket: Stores static website files (index.html).
+-> S3 Bucket: Stores static website files.
 ->CloudFront: CDN to deliver content globally with HT
 
 
