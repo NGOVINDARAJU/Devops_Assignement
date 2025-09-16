@@ -3,7 +3,7 @@ name: Deploy Static Website to AWS S3 + CloudFront
 on:
   push:
     branches:
-      - main
+      - main   # or "master" if that's your default branch
 
 jobs:
   deploy:
@@ -22,12 +22,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      # Upload static files (index.html, css, js, images, etc.)
+      # Upload only app folder (index.html, css, js, etc.)
       - name: Sync files to S3
         run: |
           aws s3 sync ./app s3://${{ secrets.S3_BUCKET_NAME }} --delete
 
-      # Invalidate CloudFront cache
+      # Invalidate CloudFront cache so new changes show immediately
       - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation \
