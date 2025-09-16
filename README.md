@@ -19,7 +19,7 @@ flowchart TD
     CF --> User[End Users]
 
 -> GitHub Actions: Automates build & deployment.
--> S3 Bucket: Stores static website files (index.html, assets).
+-> S3 Bucket: Stores static website files (index.html).
 ->CloudFront: CDN to deliver content globally with HT
 
 
