@@ -7,18 +7,8 @@ Whenever code is pushed to the `main` branch, the pipeline automatically:
 1. Uploads the updated website files to **Amazon S3**.
 2. Invalidates the **CloudFront CDN cache**, ensuring changes go live instantly.
 
----
 
-## 🏗️ Architecture
 
-## 🏗️ Architecture
-
-```mermaid
-flowchart TD
-    Dev[Developer Push to GitHub] -->|Trigger Workflow| GA[GitHub Actions CI/CD]
-    GA -->|Sync Files| S3[(Amazon S3 Bucket)]
-    S3 --> CF[Amazon CloudFront]
-    CF --> User[End Users]
 
 
 -> GitHub Actions: Automates build & deployment.
